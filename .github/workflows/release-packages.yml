@@ -48,7 +48,8 @@ jobs:
       packages: write
     timeout-minutes: 90
     env:
-      TAG: ${{ github.sha }}
+      #SHA: ${{ github.sha }}
+      TAG: ${{ github.ref }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
