@@ -163,6 +163,84 @@ charts = [
         'type': 'json',
         'ignore_patch': True
     },
+    {
+        'name': 'calico',
+        'source': './resources/insight-system/calico.json',
+        'destination': '../dashboards/insight-system',
+        'type': 'json',
+        'ignore_patch': True
+    },
+    {
+        'name': 'contour',
+        'source': './resources/insight-system/contour.json',
+        'destination': '../dashboards/insight-system',
+        'type': 'json',
+        'ignore_patch': True
+    },
+    {
+        'name': 'egress',
+        'source': './resources/insight-system/egress.json',
+        'destination': '../dashboards/insight-system',
+        'type': 'json',
+        'ignore_patch': True
+    },
+    {
+        'name': 'hwamei',
+        'source': './resources/insight-system/hwamei.json',
+        'destination': '../dashboards/insight-system',
+        'type': 'json',
+        'ignore_patch': True
+    },
+    {
+        'name': 'ingress',
+        'source': './resources/insight-system/ingress.json',
+        'destination': '../dashboards/insight-system',
+        'type': 'json',
+        'ignore_patch': True
+    },
+    {
+        'name': 'jvm-monitoring-exporter-en',
+        'source': './resources/insight-system/jvm-monitoring-exporter-en.json',
+        'destination': '../dashboards/insight-system',
+        'type': 'json',
+        'ignore_patch': True
+    },
+    {
+        'name': 'jvm-monitoring-exporter-zh',
+        'source': './resources/insight-system/jvm-monitoring-exporter-zh.json',
+        'destination': '../dashboards/insight-system',
+        'type': 'json',
+        'ignore_patch': True
+    },
+    {
+        'name': 'jvm-monitoring-otel-en',
+        'source': './resources/insight-system/jvm-monitoring-otel-en.json',
+        'destination': '../dashboards/insight-system',
+        'type': 'json',
+        'ignore_patch': True
+    },
+    {
+        'name': 'jvm-monitoring-otel-zh',
+        'source': './resources/insight-system/jvm-monitoring-otel-zh.json',
+        'destination': '../dashboards/insight-system',
+        'type': 'json',
+        'ignore_patch': True
+    },
+    {
+        'name': 'metallb',
+        'source': './resources/insight-system/metallb.json',
+        'destination': '../dashboards/insight-system',
+        'type': 'json',
+        'ignore_patch': True
+    },
+    {
+        'name': 'spiderpool',
+        'source': './resources/insight-system/spiderpool.json',
+        'destination': '../dashboards/insight-system',
+        'type': 'json',
+        'ignore_patch': True
+    },
+
 ]
 
 skip_list = [
