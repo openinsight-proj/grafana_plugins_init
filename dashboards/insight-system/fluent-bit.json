@@ -1508,7 +1508,7 @@
                     "type": "prometheus",
                     "uid": "Prometheus"
                 },
-                "definition": "fluentbit_build_info",
+                "definition": "query_result(count(global_cluster_info{cluster_name=\"$cluster_name\"}) by (cluster))",
                 "description": "cluster selector",
                 "hide": 2,
                 "includeAll": true,
@@ -1518,14 +1518,48 @@
 
                 ],
                 "query": {
-                    "query": "label_values(global_cluster_info{cluster_name=\"$cluster_name\"}, cluster)",
+                    "query": "query_result(count(global_cluster_info{cluster_name=\"$cluster_name\"}) by (cluster))",
                     "refId": "Prometheus-cluster-Variable-Query"
                 },
                 "refresh": 1,
-                "regex": "",
+                "regex": "/\"([^\"]+)\"/",
                 "skipUrlSync": false,
                 "sort": 0,
                 "type": "query"
+            },
+            {
+                "allValue": null,
+                "current": {
+                    "text": "",
+                    "value": ""
+                },
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": ""
+                },
+                "definition": "query_result(count(global_cluster_info) by (cluster_name))",
+                "hide": 0,
+                "includeAll": false,
+                "label": "Cluster",
+                "multi": false,
+                "name": "cluster_name",
+                "options": [
+
+                ],
+                "query": {
+                    "query": "query_result(count(global_cluster_info) by (cluster_name))",
+                    "refId": "Prometheus-cluster_name-Variable-Query"
+                },
+                "refresh": 2,
+                "regex": "/\"([^\"]+)\"/",
+                "sort": 1,
+                "tagValuesQuery": "",
+                "tags": [
+
+                ],
+                "tagsQuery": "",
+                "type": "query",
+                "useTags": false
             },
             {
                 "current": {
