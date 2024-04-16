@@ -15,15 +15,6 @@ class LiteralStr(str):
     pass
 
 
-# def change_style(style, representer):
-#     def new_representer(dumper, data):
-#         scalar = representer(dumper, data)
-#         scalar.style = style
-#         return scalar
-#
-#     return new_representer
-
-
 # Source files list
 charts = [
     {
@@ -242,61 +233,6 @@ skip_list = [
     "prometheus-remote-write.json"
 ]
 
-# Additional conditions map
-# condition_map = {
-#     'grafana-coredns-k8s': '(index .Values "dashboards" "coreDns")',
-#     'etcd': '(index .Values "dashboards" "kubeEtcd")',
-#     'apiserver': '(index .Values "dashboards" "kubeApiServer")',
-#     'controller-manager': '(index .Values "dashboards" "kubeControllerManager")',
-#     'kubelet': '(index .Values "dashboards" "kubelet")',
-#     'proxy': '(index .Values "dashboards" "kubeProxy")',
-#     'scheduler': '(index .Values "dashboards" "kubeScheduler")',
-#     'node-rsrc-use': '(index .Values "dashboards" "prometheus-node-exporter")',
-#     'node-cluster-rsrc-use': '(index .Values "dashboards" "prometheus-node-exporter")',
-#     'victoriametrics-cluster': '(index .Values "dashboards" "vmcluster")',
-#     'victoriametrics': '(index .Values "dashboards" "vmsingle")',
-#     'vmalert': '(index .Values "dashboards" "vmalert")',
-#     'vmagent': '(index .Values "dashboards" "vmagent")',
-#     'fluent-bit': '(index .Values "dashboards" "fluentBit")',
-#     'agent-otel-collector': '(index .Values "dashboards" "agentOtelCollector")',
-#     'otel-collector': '(index .Values "dashboards" "otelCollector")',
-#     'nodes-darwin': '(index .Values "dashboards" "nodes-darwin")',
-#     'jaeger-collector': '(index .Values "dashboards" "jaegerCollector")',
-#     'tracing-debug': '(index .Values "dashboards" "tracingDebug")',
-#     'insight-logging': '(index .Values "dashboards" "insightLogging")'
-# }
-
-# standard header
-# header = '''{{- /*
-# Generated from '%(name)s' from %(url)s
-# Do not change in-place! In order to change this file first read following link:
-# https://gitlab.daocloud.cn/ndx/engineering/insight/insight/-/tree/main/hack
-# */ -}}
-# {{- %(condition)s }}
-# apiVersion: integreatly.org/v1alpha1
-# kind: GrafanaDashboard
-# metadata:
-#   namespace: {{ .Release.Namespace }}
-#   name: {{ printf "%%s-%%s" (include "dashboard.fullname" $) "%(name)s" | trunc 63 | trimSuffix "-" | trimSuffix "." }}
-#   labels:
-# {{ include "dashboard.common.labels" $ | indent 4 }}
-#     {{- if (index $ "Values" "dashboards" "label") }}
-#     {{ (index $ "Values" "dashboards" "label") }}: "1"
-#     {{- end }}
-#     {{- if (index $ "Values" "dashboards" "additionalDashboardLabels") }}
-#     {{- range $key, $val := (index .Values "dashboards" "additionalDashboardLabels") }}
-#     {{ $key }}: {{ $val | quote }}
-#     {{- end }}
-#     {{- end }}
-#     app: {{ include "dashboard.name" $ }}-grafana-operator
-#     {{- if (index $ "Values" "dashboards" "additionalDashboardAnnotations") }}
-#   annotations:
-#     {{- range $key, $val := (index .Values "dashboards" "additionalDashboardAnnotations") }}
-#     {{ $key }}: {{ $val | quote }}
-#     {{- end }}
-#     {{- end }}
-# spec:
-# '''
 
 templating_cluster_name = '''{
   "allValue": null,
@@ -328,32 +264,6 @@ templating_cluster_name = '''{
   "type": "query",
   "useTags": false
 }'''
-
-
-# def init_yaml_styles():
-#     represent_literal_str = change_style('|', SafeRepresenter.represent_str)
-#     yaml.add_representer(LiteralStr, represent_literal_str)
-
-
-# def escape(s):
-#     return s.replace("{{", "{{`{{").replace("}}", "}}`}}").replace("{{`{{", "{{`{{`}}").replace("}}`}}", "{{`}}`}}")
-#
-#
-# def unescape(s):
-#     return s.replace("\{\{", "{{").replace("\}\}", "}}")
-
-
-# def yaml_str_repr(struct, indent=2):
-#     """represent yaml as a string"""
-#     text = yaml.dump(
-#         struct,
-#         width=1000,  # to disable line wrapping
-#         default_flow_style=False  # to disable multiple items on single line
-#     )
-#     text = escape(text)  # escape {{ and }} for helm
-#     text = unescape(text)  # unescape \{\{ and \}\} for templating
-#     text = textwrap.indent(text, ' ' * indent)
-#     return text
 
 
 def convert_cluster_name_to_linkUrl(key, content_struct):
