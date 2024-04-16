@@ -31,7 +31,6 @@ charts = [
         'source': './resources/insight-system/insight_agent_fluentbit.json',
         'destination': '../dashboards/insight-system',
         'type': 'json',
-        'ignore_patch': True,
     },
     {
         'name': 'otel-collector',
@@ -81,11 +80,6 @@ charts = [
     },
     {
         'source': 'https://etcd.io/docs/v3.4/op-guide/grafana.json',
-        'destination': '../dashboards/insight-system',
-        'type': 'json',
-    },
-    {
-        'source': 'https://raw.githubusercontent.com/VictoriaMetrics/VictoriaMetrics/master/dashboards/victoriametrics.json',
         'destination': '../dashboards/insight-system',
         'type': 'json',
     },
@@ -165,36 +159,36 @@ charts = [
     },
     {
         'name': 'calico',
-        'source': './resources/insight-system/calico.json',
-        'destination': '../dashboards/insight-system',
+        'source': './resources/kube-system/calico.json',
+        'destination': '../dashboards/kube-system',
         'type': 'json',
         'ignore_patch': True
     },
     {
         'name': 'contour',
-        'source': './resources/insight-system/contour.json',
-        'destination': '../dashboards/insight-system',
+        'source': './resources/insight-components/contour.json',
+        'destination': '../dashboards/insight-components',
         'type': 'json',
         'ignore_patch': True
     },
     {
         'name': 'egress',
-        'source': './resources/insight-system/egress.json',
-        'destination': '../dashboards/insight-system',
+        'source': './resources/insight-components/egress.json',
+        'destination': '../dashboards/insight-components',
         'type': 'json',
         'ignore_patch': True
     },
     {
         'name': 'hwamei',
-        'source': './resources/insight-system/hwamei.json',
-        'destination': '../dashboards/insight-system',
+        'source': './resources/hwameistor/hwamei.json',
+        'destination': '../dashboards/hwameistor',
         'type': 'json',
         'ignore_patch': True
     },
     {
         'name': 'ingress',
-        'source': './resources/insight-system/ingress.json',
-        'destination': '../dashboards/insight-system',
+        'source': './resources/insight-components/ingress.json',
+        'destination': '../dashboards/insight-components',
         'type': 'json',
         'ignore_patch': True
     },
@@ -228,15 +222,15 @@ charts = [
     },
     {
         'name': 'metallb',
-        'source': './resources/insight-system/metallb.json',
-        'destination': '../dashboards/insight-system',
+        'source': './resources/matallb-system/metallb.json',
+        'destination': '../dashboards/matallb-system',
         'type': 'json',
         'ignore_patch': True
     },
     {
         'name': 'spiderpool',
-        'source': './resources/insight-system/spiderpool.json',
-        'destination': '../dashboards/insight-system',
+        'source': './resources/insight-components/spiderpool.json',
+        'destination': '../dashboards/insight-components',
         'type': 'json',
         'ignore_patch': True
     },
